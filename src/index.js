@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './store/reducer'
+import counterReducer from './store/reducers/counter';
+import resultReducer from './store/reducers/result';
 
+const rootReducer = combineReducers({
+    ctr: counterReducer,
+    res: resultReducer
+})
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
-    reducer, /* preloadedState, */
+    rootReducer, /* preloadedState, */
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 /* eslint-enable */

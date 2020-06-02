@@ -7,11 +7,6 @@ export const saveresult = (res) => {
 }
 //changed this fucntion as Async for thunk,
 export const storeResult = (res) => {
-    // return {
-    //     type: actionTypes.STORE_RESULT,
-    //     result: res
-    // }
-
     return (dispatch, getState) => {
         console.log(getState().res);
         setTimeout(() => {

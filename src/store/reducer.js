@@ -1,9 +1,10 @@
-import * as actionTypes from './actions';
+import * as actionTypes from './actionsConstant';
 const initialState = {
     counter: 0,
     results: []
 }
 const reducer = (state = initialState, action) => {
+
 
     switch (action.type) {
         case actionTypes.INCRIMENT: return {
@@ -22,10 +23,11 @@ const reducer = (state = initialState, action) => {
             ...state,
             counter: state.counter - action.val
         }
-        case actionTypes.STORE_RESULT: return {
-            ...state,
-            results: state.results.concat(action.result)
-        }
+        case actionTypes.STORE_RESULT:
+            return {
+                ...state,
+                results: state.results.concat(action.result)
+            }
 
         default: return state;
     }
